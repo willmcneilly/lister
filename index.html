@@ -28,21 +28,26 @@
     <h1>About</h1>
   </script>
 
+  <script type="text/x-handlebars" data-template-name="contact">
+    <h1>Contact</h1>
+  </script>
 
   <script type="text/x-handlebars" data-template-name="_nav">
     <nav class="top-bar">
       <ul class="title-area">
         <li class="name">
-          <h1><a href="#">Lister</a></h1>
+          <h1>{{#linkTo index}}Lister{{/linkTo}}</h1>
         </li>
-        <li class="toggle-topbar"><a href="#"><span>Menu</span></a></li>
       </ul>
       <section class="top-bar-section">
         <ul class="left">
           <li class="divider"></li>
-          <li><a href="#">About</a></li>
+          <li>{{#linkTo lists}}My Lists{{/linkTo}}</li>
           <li class="divider"></li>
-          <li><a href="#">Contact</a></li>
+          <li class="divider"></li>
+          <li>{{#linkTo about}}About{{/linkTo}}</li>
+          <li class="divider"></li>
+          <li>{{#linkTo contact}}Contact{{/linkTo}}</li>
           <li class="divider"></li>
         </ul>
       </section>

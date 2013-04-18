@@ -29,7 +29,7 @@
         <h2>My Lists</h2>
       </div>
       <div class="large-2 columns">
-        {{#linkTo "lists.new" class="button right small success radius"}}New List{{/linkTo}}
+        {{#linkTo "lists.new" class="button right small success radius"}}Create List{{/linkTo}}
       </div>
     </div>
     <div class="row">
@@ -40,7 +40,7 @@
     {{#each controller}}
       <div class="list">
         <h3 class="list-title">{{title}}</h3>
-        <div class="list-content">{{content}}</div>
+        <div class="list-content">{{listData}}</div>
         <span class="list-date">{{date}}</span>
       </div>
     {{else}}
@@ -53,7 +53,17 @@
   </script>
 
   <script type="text/x-handlebars" data-template-name="lists/new">
-    <p>New list partial</p>
+    <form {{action "save" on="submit"}}>
+      <p>
+        {{view Ember.TextField valueBinding="title" placeholder="Give your list a title"}}
+      </p>
+      <p>
+        {{view Ember.TextArea valueBinding="listData" placeholder="Add to your list"}}
+      </p>
+      <p>
+        <button>Create List</button>
+      </p>
+    </form>
   </script>
 
   <script type="text/x-handlebars" data-template-name="about">
@@ -100,6 +110,9 @@
   <script src="js/store.js"></script>
   <script src="js/router.js"></script>
   <script src="js/controllers/lists.js"></script>
-
+  <script src="js/controllers/lists-new.js"></script>
+  <script src="js/models/list.js"></script>
+  <script src="js/routes/lists-new.js"></script>
+  <script src="js/routes/lists.js"></script>
 </body>
 </html>

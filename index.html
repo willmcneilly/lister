@@ -18,10 +18,26 @@
     </div>
   </script>
 
-
-
   <script type="text/x-handlebars" data-template-name="index">
+    <h1>Welcome to Lister</h1>
+    {{#linkTo lists class='large button'}}Create a List{{/linkTo}}
+  </script>
 
+  <script type="text/x-handlebars" data-template-name="lists">
+    <h1>My Lists</h1>
+    {{#each controller}}
+      <div class="list">
+        <h3 class="list-title">{{title}}</h3>
+        <div class="list-content">{{content}}</div>
+        <span class="list-date">{{date}}</span>
+      </div>
+    {{else}}
+      <div class="row">
+        <div class="large-6 columns">
+          <div class="panel radius"><h5>You have no lists</h5></div>
+        </div>
+      </div>
+    {{/each}}
   </script>
 
   <script type="text/x-handlebars" data-template-name="about">
@@ -44,7 +60,6 @@
           <li class="divider"></li>
           <li>{{#linkTo lists}}My Lists{{/linkTo}}</li>
           <li class="divider"></li>
-          <li class="divider"></li>
           <li>{{#linkTo about}}About{{/linkTo}}</li>
           <li class="divider"></li>
           <li>{{#linkTo contact}}Contact{{/linkTo}}</li>
@@ -64,6 +79,7 @@
   <script src="js/app.js"></script>
   <script src="js/store.js"></script>
   <script src="js/router.js"></script>
+  <script src="js/controllers/lists.js"></script>
 
 </body>
 </html>
